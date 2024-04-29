@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PencilPDFDemoAppApp: App {
+    @StateObject var container: DIContainer = .init(services: Services())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: .init(container: container))
+                .environmentObject(container)
         }
     }
 }
