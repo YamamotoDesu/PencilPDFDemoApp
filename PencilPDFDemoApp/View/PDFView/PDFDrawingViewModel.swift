@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PDFViewModel: ObservableObject {
+class PDFDrawingViewModel: ObservableObject {
 
     enum Action {
         case goToBackView

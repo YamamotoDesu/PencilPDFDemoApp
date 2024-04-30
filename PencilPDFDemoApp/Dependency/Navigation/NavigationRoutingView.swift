@@ -14,7 +14,7 @@ struct NavigationRoutingView: View {
     var body: some View {
         switch destination {
         case .pdf(let book):
-            PDFView(viewModel: .init(container: container, book: book))
+            PDFDrawingView(viewModel: .init(container: container, book: book))
         }
     }
 }

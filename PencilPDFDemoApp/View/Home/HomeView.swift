@@ -26,6 +26,7 @@ struct HomeView: View {
                 HomeContentView(homeViewModel: viewModel,
                                 book: $book)
             }
+            .background(.white)
             .navigationDestination(for: NavigationDestination.self) {
                 NavigationRoutingView(destination: $0)
             }
@@ -35,7 +36,7 @@ struct HomeView: View {
 
 private struct HomeContentView: View {
     @ObservedObject var homeViewModel: HomeViewModel
-    @State var isShowDocumentView: Bool = false
+    @State var isShowFileImporter: Bool = false
     @Binding var book: Book?
     
     var body: some View {
@@ -44,14 +45,20 @@ private struct HomeContentView: View {
                       spacing: 40) {
                 
                 Button(action: {
-                    isShowDocumentView = true
+                    isShowFileImporter = true
                 }, label: {
                     BookItemEmptyView()
                 })
-                .sheet(isPresented: $isShowDocumentView, content: {
-                    DocumentPickerView(viewModel: homeViewModel)
-                        .frame(height: UIScreen.main.bounds.height * 0.6)
-                })
+                .fileImporter(isPresented: $isShowFileImporter,
+                              allowedContentTypes: [.pdf]
+                ) { result in
+                    switch result {
+                    case .success(let url):
+                        homeViewModel.send(action: .makeNewBook(url))
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
                 
                 ForEach(homeViewModel.books, id: \.self) { book in
                     Button(action: {

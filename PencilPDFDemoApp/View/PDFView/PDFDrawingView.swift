@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct PDFView: View {
+struct PDFDrawingView: View {
     @EnvironmentObject var container: DIContainer
-    @StateObject var viewModel: PDFViewModel
+    @StateObject var viewModel: PDFDrawingViewModel
     
     var body: some View {
         VStack {
-            Text(viewModel.book.title)
+            PDFKitView(path: viewModel.book.path)
         }
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -22,11 +22,14 @@ struct PDFView: View {
                     viewModel.send(action: .goToBackView)
                 } label: {
                     Image(systemName: "chevron.backward")
+                        .foregroundStyle(.black)
                 }
             }
             
             ToolbarItemGroup(placement: .principal) {
                 Text(viewModel.book.title)
+                    .font(.title)
+                    .foregroundStyle(.black)
             }
         }
     }
