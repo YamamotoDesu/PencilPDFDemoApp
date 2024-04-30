@@ -11,7 +11,6 @@ import PDFKit
 final class HomeViewModel: ObservableObject {
     
     enum Action {
-//        case makeNewBook(String, String, Int)
         case makeNewBook(URL?)
         case goToPDF(Book)
     }
@@ -19,6 +18,7 @@ final class HomeViewModel: ObservableObject {
     @Published var books = [Book]()
     
     private var container: DIContainer
+    private let manager = FileManager.default
     
     init(container: DIContainer) {
         self.container = container
@@ -34,9 +34,22 @@ final class HomeViewModel: ObservableObject {
                 guard let pageCount = PDFDocument(url: url)?.pageCount else { return }
                 defer { url.stopAccessingSecurityScopedResource() }
                 
-                let newBook = Book(title: url.lastPathComponent, path: "\(url)", curPage: 1, maxPage: 1, totalPage: pageCount)
-                books.append(newBook)
-                container.services.realmService.addBook(book: newBook)
+                do {
+                    let pdfData: Data = try Data(contentsOf: url)
+//                    guard let localURL: URL = container.services.fileManagingService
+//                        .copyPDF(data: pdfData, name: "\(url.lastPathComponent)") else { return }
+                    
+                    let newBook = Book(title: url.lastPathComponent,
+                                       path: pdfData,
+                                       curPage: 1,
+                                       maxPage: 1,
+                                       totalPage: pageCount)
+                    
+                    books.append(newBook)
+                    container.services.realmService.addBook(book: newBook)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
             
         case .goToPDF(let book):

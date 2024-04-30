@@ -1,5 +1,5 @@
 //
-//  BookItemEmptyView.swift
+//  BookItemEmptyCell.swift
 //  PencilPDFDemoApp
 //
 //  Created by Zerom on 4/29/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookItemEmptyView: View {
+struct BookItemEmptyCell: View {
     var body: some View {
         VStack {
             ZStack {

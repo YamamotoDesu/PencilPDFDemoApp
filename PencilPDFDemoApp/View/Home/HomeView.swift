@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  PencilPDFDemoApp
 //
 //  Created by Zerom on 4/27/24.
@@ -11,66 +11,53 @@ import MobileCoreServices
 struct HomeView: View {
     @EnvironmentObject var container: DIContainer
     @StateObject var viewModel: HomeViewModel
-    @State var book: Book?
+    @State var isShowFileImporter: Bool = false
     
     var body: some View {
         NavigationStack(path: $container.navigationRouter.destinations) {
-            VStack(spacing: 0) {
-                ButtonStackView()
-                    .padding(.leading, 40)
-                    .padding(.top, 20)
-                
-                Spacer()
-                    .frame(height: 50)
-                
-                HomeContentView(homeViewModel: viewModel,
-                                book: $book)
-            }
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))], spacing: 40) {
+
+                    // PDF 추가 버튼
+                    Button(action: {
+                        isShowFileImporter = true
+                    }, label: {
+                        BookItemEmptyCell()
+                    })
+                    .fileImporter(isPresented: $isShowFileImporter,
+                                  allowedContentTypes: [.pdf]
+                    ) { result in
+                        switch result {
+                        case .success(let url):
+                            viewModel.send(action: .makeNewBook(url))
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    
+                    ForEach(viewModel.books, id: \.self) { book in
+                        Button(action: {
+                            viewModel.send(action: .goToPDF(book))
+                        }, label: {
+                            BookItemCell(title: book.title,
+                                         progress: book.progress)
+                        })
+                    }
+                } // VGrid
+                .padding(.horizontal, 10)
+            } // ScrollView
             .background(.white)
+            .toolbar {
+                ToolbarItemGroup(placement: .principal) {
+                    Text("PDFDemoApp")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                }
+            }
             .navigationDestination(for: NavigationDestination.self) {
                 NavigationRoutingView(destination: $0)
             }
-        }
-    }
-}
-
-private struct HomeContentView: View {
-    @ObservedObject var homeViewModel: HomeViewModel
-    @State var isShowFileImporter: Bool = false
-    @Binding var book: Book?
-    
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))],
-                      spacing: 40) {
-                
-                Button(action: {
-                    isShowFileImporter = true
-                }, label: {
-                    BookItemEmptyView()
-                })
-                .fileImporter(isPresented: $isShowFileImporter,
-                              allowedContentTypes: [.pdf]
-                ) { result in
-                    switch result {
-                    case .success(let url):
-                        homeViewModel.send(action: .makeNewBook(url))
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                
-                ForEach(homeViewModel.books, id: \.self) { book in
-                    Button(action: {
-                        homeViewModel.send(action: .goToPDF(book))
-                    }, label: {
-                        BookItemView(title: book.title, 
-                                     progress: book.progress)
-                    })
-                }
-            }
-            .padding(.horizontal, 10)
-        }
+        } // NavigationStack
     }
 }
 

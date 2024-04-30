@@ -11,7 +11,7 @@ import RealmSwift
 class RMBook: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title: String
-    @Persisted var path: String
+    @Persisted var path: Data
     @Persisted var curPage: Int
     @Persisted var maxPage: Int
     @Persisted var totalPage: Int

@@ -11,13 +11,13 @@ import RealmSwift
 struct Book: Hashable {
     let id: String
     var title: String
-    let path: String
+    let path: Data
     var progress: Int
     var curPage: Int
     var maxPage: Int
     let totalPage: Int
     
-    init(id: ObjectId = ObjectId.generate(), title: String, path: String, curPage: Int, maxPage: Int, totalPage: Int) {
+    init(id: ObjectId = ObjectId.generate(), title: String, path: Data, curPage: Int, maxPage: Int, totalPage: Int) {
         self.id = id.stringValue
         self.title = title
         self.path = path

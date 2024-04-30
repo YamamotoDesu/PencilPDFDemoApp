@@ -1,5 +1,5 @@
 //
-//  BookItemView.swift
+//  BookItemCell.swift
 //  PencilPDFDemoApp
 //
 //  Created by Zerom on 4/29/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookItemView: View {
+struct BookItemCell: View {
     var title: String
     var progress: Int
     

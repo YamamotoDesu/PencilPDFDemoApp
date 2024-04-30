@@ -10,10 +10,15 @@ import SwiftUI
 struct PDFDrawingView: View {
     @EnvironmentObject var container: DIContainer
     @StateObject var viewModel: PDFDrawingViewModel
+    @State var toolType: DrawingTool = .pen
     
     var body: some View {
         VStack {
-            PDFKitView(path: viewModel.book.path)
+            DrawingToolBar
+                .padding()
+            
+            PDFKitView(toolType: $toolType, path: viewModel.book.path)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.8)
         }
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -30,6 +35,38 @@ struct PDFDrawingView: View {
                 Text(viewModel.book.title)
                     .font(.title)
                     .foregroundStyle(.black)
+            }
+        }
+    }
+    
+    var DrawingToolBar: some View {
+        HStack {
+            Button {
+                toolType = .pen
+            } label: {
+                Text("Pen")
+                    .font(.title2)
+            }
+
+            Button {
+                toolType = .pencil
+            } label: {
+                Text("Pencil")
+                    .font(.title2)
+            }
+            
+            Button {
+                toolType = .highlighter
+            } label: {
+                Text("Highlight")
+                    .font(.title2)
+            }
+            
+            Button {
+                toolType = .eraser
+            } label: {
+                Text("Eraser")
+                    .font(.title2)
             }
         }
     }

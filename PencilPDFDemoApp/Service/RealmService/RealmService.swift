@@ -44,7 +44,7 @@ final class StubRealmService: RealmServiceType {
     
     func fetchBooks() throws -> [Book] {
         for i in 1...20 {
-            let stub = Book(title: "테스트 파일 \(i)", path: "", curPage: i, maxPage: i + 3, totalPage: i * 20)
+            let stub = Book(title: "테스트 파일 \(i)", path: Data(), curPage: i, maxPage: i + 3, totalPage: i * 20)
             books.append(stub)
         }
         
