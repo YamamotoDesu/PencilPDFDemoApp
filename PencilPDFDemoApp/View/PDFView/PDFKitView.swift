@@ -8,16 +8,15 @@
 import SwiftUI
 import UIKit
 import PDFKit
+import PencilKit
 
 struct PDFKitView: UIViewControllerRepresentable {
     @Binding var toolType: DrawingTool
-//    var path: String
-    var path: Data
+    var data: Data
     
     func makeUIViewController(context: Context) -> UIViewController {
-//        guard let url = URL(string: path) else { return ErrorViewController() }
-        let controller = PDFKitViewController(url: path)
-        return controller
+        let viewController = PDFKitViewController(data: data)
+        return viewController
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
@@ -27,41 +26,14 @@ struct PDFKitView: UIViewControllerRepresentable {
 
 class PDFKitViewController: UIViewController {
     
-//    var url: URL
-    var url: Data
+    var data: Data
+    let pdfView = PDFView(frame: CGRect(x: 0, y: 0, 
+                                        width: UIScreen.main.bounds.width,
+                                        height: UIScreen.main.bounds.height * 0.9))
+    let canvasView = PKCanvasView()
     
-    private var shouldUpdatePDFScrollPosition = true
-    private let pdfDrawer = PDFDrawer()
-    
-    let pdfView: PDFView = {
-        let pdfView = PDFView()
-        pdfView.translatesAutoresizingMaskIntoConstraints = false
-        pdfView.displayDirection = .vertical
-        pdfView.usePageViewController(true)
-        pdfView.pageBreakMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        pdfView.autoScales = true
-        pdfView.backgroundColor = .systemBackground
-        return pdfView
-    }()
-    
-    let thumbnailContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var thumbnailView: PDFThumbnailView = {
-        let thumbnailView = PDFThumbnailView()
-        thumbnailView.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailView.pdfView = pdfView
-        thumbnailView.thumbnailSize = CGSize(width: 100, height: 100)
-        thumbnailView.layoutMode = .vertical
-        thumbnailView.backgroundColor = .systemBackground
-        return thumbnailView
-    }()
-    
-    init(url: Data) {
-        self.url = url
+    init(data: Data) {
+        self.data = data
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,69 +44,34 @@ class PDFKitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setGestureAndDrawer()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if shouldUpdatePDFScrollPosition {
-            fixPDFViewScrollPosition()
-        }
-    }
-    
-    private func fixPDFViewScrollPosition() {
-        if let page = pdfView.document?.page(at: 0) {
-            let position = CGPoint(x: 0, y: page.bounds(for: pdfView.displayBox).size.height)
-            pdfView.go(to: PDFDestination(page: page, at: position))
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        shouldUpdatePDFScrollPosition = false
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        pdfView.autoScales = true
     }
     
     func setUI() {
         view.addSubview(pdfView)
-        view.addSubview(thumbnailContainerView)
-        thumbnailContainerView.addSubview(thumbnailView)
+        view.addSubview(canvasView)
         
-//        pdfView.document = PDFDocument(url: url)
-//        pdfView.document = PDFDocument(data: url)
-        guard let path = Bundle.main.url(forResource: "Test", withExtension: "pdf") else { return }
-//        print(path)
-        pdfView.document = PDFDocument(url: path)
+        pdfView.translatesAutoresizingMaskIntoConstraints = false
+        pdfView.usePageViewController(true)
+        pdfView.autoScales = true
+        pdfView.displayMode = .singlePage
+        pdfView.displayDirection = .horizontal
+        pdfView.document = PDFDocument(data: data)
+        
+        canvasView.translatesAutoresizingMaskIntoConstraints = false
+        canvasView.backgroundColor = .clear
+        canvasView.drawingPolicy = .anyInput
+        canvasView.tool = PKInkingTool(.pen, color: .black, width: 10)
         
         NSLayoutConstraint.activate([
             pdfView.topAnchor.constraint(equalTo: view.topAnchor),
             pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            pdfView.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor),
+            pdfView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            thumbnailContainerView.topAnchor.constraint(equalTo: view.topAnchor),
-            thumbnailContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            thumbnailContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            thumbnailContainerView.widthAnchor.constraint(equalToConstant: 132),
-            
-            thumbnailView.topAnchor.constraint(equalTo: thumbnailContainerView.topAnchor),
-            thumbnailView.bottomAnchor.constraint(equalTo: thumbnailContainerView.bottomAnchor),
-            thumbnailView.leadingAnchor.constraint(equalTo: thumbnailContainerView.leadingAnchor),
-            thumbnailView.trailingAnchor.constraint(equalTo: thumbnailContainerView.trailingAnchor)
+            canvasView.topAnchor.constraint(equalTo: view.topAnchor),
+            canvasView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            canvasView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            canvasView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-    
-    func setGestureAndDrawer() {
-        let pdfDrawingGestureRecognizer = DrawingGestureRecognizer()
-        pdfView.addGestureRecognizer(pdfDrawingGestureRecognizer)
-        pdfDrawingGestureRecognizer.drawingDelegate = pdfDrawer
-        pdfDrawer.pdfView = pdfView
-    }
-    
-    func changeDrawingTool(tool: DrawingTool) {
-        pdfDrawer.drawingTool = tool
     }
 }

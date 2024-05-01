@@ -17,8 +17,8 @@ struct PDFDrawingView: View {
             DrawingToolBar
                 .padding()
             
-            PDFKitView(toolType: $toolType, path: viewModel.book.path)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.8)
+            PDFKitView(toolType: $toolType, data: viewModel.book.path)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.9)
         }
         .navigationBarBackButtonHidden()
         .toolbar {
