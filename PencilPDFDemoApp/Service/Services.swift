@@ -8,21 +8,21 @@
 import Foundation
 
 protocol ServiceType {
-    var realmService: RealmServiceType { get set }
-    var fileManagingService: FileManagingServiceType { get set }
+    var bookService: BookServiceType { get set }
+    var uploadService: UploadServiceType { get set }
 }
 
-class Services: ServiceType {
-    var realmService: RealmServiceType
-    var fileManagingService: FileManagingServiceType
+final class Services: ServiceType {
+    var bookService: BookServiceType
+    var uploadService: UploadServiceType
     
     init() {
-        self.realmService = RealmService()
-        self.fileManagingService = FileManagingService()
+        self.bookService = BookService(dbRepository: BookDBRepository())
+        self.uploadService = UploadService(provider: UploadProvider())
     }
 }
 
-class StubServices: ServiceType {
-    var realmService: RealmServiceType = StubRealmService()
-    var fileManagingService: FileManagingServiceType = StubFileManagingService()
+final class StubServices: ServiceType {
+    var bookService: BookServiceType = StubBookService()
+    var uploadService: UploadServiceType = StubUploadService()
 }

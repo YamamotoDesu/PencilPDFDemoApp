@@ -6,24 +6,34 @@
 //
 
 import Foundation
-import RealmSwift
 
-struct Book: Hashable {
+struct Book: Hashable, Identifiable {
     let id: String
     var title: String
-    let path: Data
+    let pdfImageURLs: [String]
     var progress: Int
     var curPage: Int
     var maxPage: Int
     let totalPage: Int
+}
+
+extension Book {
+    func toObject() -> BookObject {
+        .init(id: id,
+              title: title,
+              pdfImageURLs: pdfImageURLs,
+              curPage: curPage,
+              maxPage: maxPage,
+              totalPage: totalPage)
+    }
+}
+
+extension Book {
+    static var stub1: Book {
+        .init(id: "book1_id", title: "기출문제 모음집", pdfImageURLs: [], progress: 20, curPage: 3, maxPage: 10, totalPage: 50)
+    }
     
-    init(id: ObjectId = ObjectId.generate(), title: String, path: Data, curPage: Int, maxPage: Int, totalPage: Int) {
-        self.id = id.stringValue
-        self.title = title
-        self.path = path
-        self.progress = maxPage / totalPage * 100
-        self.curPage = curPage
-        self.maxPage = maxPage
-        self.totalPage = totalPage
+    static var stub2: Book {
+        .init(id: "book2_id", title: "전기기사 기출", pdfImageURLs: [], progress: 10, curPage: 2, maxPage: 30, totalPage: 300)
     }
 }

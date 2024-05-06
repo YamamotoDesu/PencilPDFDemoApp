@@ -7,15 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A49EFF62BDE3EF300C183CC /* HeaderButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49EFF52BDE3EF300C183CC /* HeaderButtonModifier.swift */; };
 		1A49EFF92BDE42C600C183CC /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49EFF82BDE42C600C183CC /* Book.swift */; };
 		1A49EFFB2BDE45B900C183CC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49EFFA2BDE45B900C183CC /* HomeViewModel.swift */; };
-		1A49F0022BDF8CAD00C183CC /* RMBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0012BDF8CAD00C183CC /* RMBook.swift */; };
-		1A49F0062BDF8CF300C183CC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1A49F0052BDF8CF300C183CC /* Realm */; };
-		1A49F0082BDF8CF300C183CC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A49F0072BDF8CF300C183CC /* RealmSwift */; };
-		1A49F00A2BDF8D0700C183CC /* Object+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0092BDF8D0700C183CC /* Object+Extension.swift */; };
-		1A49F00C2BDF8D5200C183CC /* TypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F00B2BDF8D5200C183CC /* TypeProtocol.swift */; };
-		1A49F0102BDF8FA800C183CC /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F00F2BDF8FA700C183CC /* RealmService.swift */; };
 		1A49F0142BDF93F800C183CC /* BookItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0132BDF93F800C183CC /* BookItemCell.swift */; };
 		1A49F0162BDF942F00C183CC /* BookItemEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0152BDF942F00C183CC /* BookItemEmptyCell.swift */; };
 		1A49F01B2BDFC70700C183CC /* PDFDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F01A2BDFC70700C183CC /* PDFDrawingView.swift */; };
@@ -26,30 +19,38 @@
 		1A49F0272BDFCD1000C183CC /* ObservableObjectSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0262BDFCD1000C183CC /* ObservableObjectSettable.swift */; };
 		1A49F0292BDFDCBF00C183CC /* NavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0282BDFDCBF00C183CC /* NavigationRoutingView.swift */; };
 		1A49F02B2BDFDD6800C183CC /* PDFDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F02A2BDFDD6800C183CC /* PDFDrawingViewModel.swift */; };
-		1A49F02F2BDFFDA500C183CC /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F02E2BDFFDA500C183CC /* PDFKitView.swift */; };
-		1A49F0312BE0BDE300C183CC /* PDFDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0302BE0BDE300C183CC /* PDFDrawer.swift */; };
-		1A49F0342BE0C03300C183CC /* PDF+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0332BE0C03300C183CC /* PDF+Extension.swift */; };
-		1A49F0362BE0C10F00C183CC /* DrawingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0352BE0C10F00C183CC /* DrawingAnnotation.swift */; };
-		1A49F0382BE0C15400C183CC /* DrawingGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0372BE0C15400C183CC /* DrawingGestureRecognizer.swift */; };
-		1A49F03A2BE0C1D000C183CC /* NonSelectablePDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F0392BE0C1D000C183CC /* NonSelectablePDFView.swift */; };
-		1A49F03C2BE0CD3500C183CC /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F03B2BE0CD3500C183CC /* ErrorViewController.swift */; };
-		1A49F0402BE11E8D00C183CC /* FileManagingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F03F2BE11E8D00C183CC /* FileManagingService.swift */; };
-		1A49F0442BE1496900C183CC /* Test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1A49F0432BE1496900C183CC /* Test.pdf */; };
+		1A9C70F92BE2696800F86F3A /* PDFViewNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C70F82BE2696800F86F3A /* PDFViewNavigationBar.swift */; };
+		1A9C70FB2BE2697300F86F3A /* DrawingToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C70FA2BE2697300F86F3A /* DrawingToolBar.swift */; };
+		1A9C70FE2BE269F000F86F3A /* PDFImageDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C70FD2BE269F000F86F3A /* PDFImageDrawingView.swift */; };
+		1ABF165F2BE4CC9E00C01E10 /* BookObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF165E2BE4CC9E00C01E10 /* BookObject.swift */; };
+		1ABF16652BE4D48300C01E10 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABF16642BE4D48300C01E10 /* FirebaseDatabase */; };
+		1ABF16672BE4D48300C01E10 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABF16662BE4D48300C01E10 /* FirebaseDatabaseSwift */; };
+		1ABF16692BE4D48300C01E10 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABF16682BE4D48300C01E10 /* FirebaseFirestore */; };
+		1ABF166B2BE4D48300C01E10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABF166A2BE4D48300C01E10 /* FirebaseStorage */; };
+		1ABF166E2BE4D51D00C01E10 /* BookDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF166D2BE4D51D00C01E10 /* BookDBRepository.swift */; };
+		1ABF16702BE4D58F00C01E10 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF166F2BE4D58F00C01E10 /* DBError.swift */; };
+		1ABF16722BE4D63400C01E10 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF16712BE4D63400C01E10 /* Constant.swift */; };
+		1AD012892BE8ADCB00848928 /* CanvasDrawingRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD012882BE8ADCB00848928 /* CanvasDrawingRepresentableView.swift */; };
+		1AD0128C2BE8CEBB00848928 /* DrawingFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0128B2BE8CEBB00848928 /* DrawingFileManager.swift */; };
 		1ADF0BA22BDCC4BE008481D8 /* PencilPDFDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF0BA12BDCC4BE008481D8 /* PencilPDFDemoAppApp.swift */; };
 		1ADF0BA42BDCC4BE008481D8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADF0BA32BDCC4BE008481D8 /* HomeView.swift */; };
 		1ADF0BA62BDCC4BF008481D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF0BA52BDCC4BF008481D8 /* Assets.xcassets */; };
 		1ADF0BA92BDCC4BF008481D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF0BA82BDCC4BF008481D8 /* Preview Assets.xcassets */; };
+		1AF6BD6C2BE5F6CF003C375B /* UploadProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD6B2BE5F6CF003C375B /* UploadProvider.swift */; };
+		1AF6BD6E2BE5F700003C375B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF6BD6D2BE5F700003C375B /* FirebaseStorageCombine-Community */; };
+		1AF6BD702BE5F90B003C375B /* UploadSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD6F2BE5F90B003C375B /* UploadSourceType.swift */; };
+		1AF6BD732BE5F9B2003C375B /* UploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD722BE5F9B2003C375B /* UploadService.swift */; };
+		1AF6BD752BE5FA09003C375B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD742BE5FA09003C375B /* ServiceError.swift */; };
+		1AF6BD772BE5FC79003C375B /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD762BE5FC79003C375B /* BookService.swift */; };
+		1AF6BD7D2BE60D0B003C375B /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD7C2BE60D0B003C375B /* Data+Extension.swift */; };
+		1AF6BD802BE618AE003C375B /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6BD7F2BE618AD003C375B /* Phase.swift */; };
+		1AF6BD842BE61E09003C375B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6BD832BE61E09003C375B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A49EFF52BDE3EF300C183CC /* HeaderButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButtonModifier.swift; sourceTree = "<group>"; };
 		1A49EFF82BDE42C600C183CC /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		1A49EFFA2BDE45B900C183CC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		1A49F0012BDF8CAD00C183CC /* RMBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBook.swift; sourceTree = "<group>"; };
 		1A49F0032BDF8CC100C183CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1A49F0092BDF8D0700C183CC /* Object+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Extension.swift"; sourceTree = "<group>"; };
-		1A49F00B2BDF8D5200C183CC /* TypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeProtocol.swift; sourceTree = "<group>"; };
-		1A49F00F2BDF8FA700C183CC /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		1A49F0132BDF93F800C183CC /* BookItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemCell.swift; sourceTree = "<group>"; };
 		1A49F0152BDF942F00C183CC /* BookItemEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemEmptyCell.swift; sourceTree = "<group>"; };
 		1A49F01A2BDFC70700C183CC /* PDFDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawingView.swift; sourceTree = "<group>"; };
@@ -60,20 +61,28 @@
 		1A49F0262BDFCD1000C183CC /* ObservableObjectSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectSettable.swift; sourceTree = "<group>"; };
 		1A49F0282BDFDCBF00C183CC /* NavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutingView.swift; sourceTree = "<group>"; };
 		1A49F02A2BDFDD6800C183CC /* PDFDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawingViewModel.swift; sourceTree = "<group>"; };
-		1A49F02E2BDFFDA500C183CC /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
-		1A49F0302BE0BDE300C183CC /* PDFDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawer.swift; sourceTree = "<group>"; };
-		1A49F0332BE0C03300C183CC /* PDF+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PDF+Extension.swift"; sourceTree = "<group>"; };
-		1A49F0352BE0C10F00C183CC /* DrawingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingAnnotation.swift; sourceTree = "<group>"; };
-		1A49F0372BE0C15400C183CC /* DrawingGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingGestureRecognizer.swift; sourceTree = "<group>"; };
-		1A49F0392BE0C1D000C183CC /* NonSelectablePDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonSelectablePDFView.swift; sourceTree = "<group>"; };
-		1A49F03B2BE0CD3500C183CC /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
-		1A49F03F2BE11E8D00C183CC /* FileManagingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagingService.swift; sourceTree = "<group>"; };
-		1A49F0432BE1496900C183CC /* Test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Test.pdf; sourceTree = "<group>"; };
+		1A9C70F82BE2696800F86F3A /* PDFViewNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewNavigationBar.swift; sourceTree = "<group>"; };
+		1A9C70FA2BE2697300F86F3A /* DrawingToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingToolBar.swift; sourceTree = "<group>"; };
+		1A9C70FD2BE269F000F86F3A /* PDFImageDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFImageDrawingView.swift; sourceTree = "<group>"; };
+		1ABF165E2BE4CC9E00C01E10 /* BookObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookObject.swift; sourceTree = "<group>"; };
+		1ABF166D2BE4D51D00C01E10 /* BookDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDBRepository.swift; sourceTree = "<group>"; };
+		1ABF166F2BE4D58F00C01E10 /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
+		1ABF16712BE4D63400C01E10 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		1AD012882BE8ADCB00848928 /* CanvasDrawingRepresentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasDrawingRepresentableView.swift; sourceTree = "<group>"; };
+		1AD0128B2BE8CEBB00848928 /* DrawingFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingFileManager.swift; sourceTree = "<group>"; };
 		1ADF0B9E2BDCC4BE008481D8 /* PencilPDFDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PencilPDFDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADF0BA12BDCC4BE008481D8 /* PencilPDFDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilPDFDemoAppApp.swift; sourceTree = "<group>"; };
 		1ADF0BA32BDCC4BE008481D8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1ADF0BA52BDCC4BF008481D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ADF0BA82BDCC4BF008481D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1AF6BD6B2BE5F6CF003C375B /* UploadProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProvider.swift; sourceTree = "<group>"; };
+		1AF6BD6F2BE5F90B003C375B /* UploadSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSourceType.swift; sourceTree = "<group>"; };
+		1AF6BD722BE5F9B2003C375B /* UploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadService.swift; sourceTree = "<group>"; };
+		1AF6BD742BE5FA09003C375B /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		1AF6BD762BE5FC79003C375B /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
+		1AF6BD7C2BE60D0B003C375B /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		1AF6BD7F2BE618AD003C375B /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		1AF6BD832BE61E09003C375B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +90,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A49F0082BDF8CF300C183CC /* RealmSwift in Frameworks */,
-				1A49F0062BDF8CF300C183CC /* Realm in Frameworks */,
+				1ABF16672BE4D48300C01E10 /* FirebaseDatabaseSwift in Frameworks */,
+				1ABF166B2BE4D48300C01E10 /* FirebaseStorage in Frameworks */,
+				1AF6BD6E2BE5F700003C375B /* FirebaseStorageCombine-Community in Frameworks */,
+				1ABF16652BE4D48300C01E10 /* FirebaseDatabase in Frameworks */,
+				1ABF16692BE4D48300C01E10 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +104,7 @@
 		1A49EFF42BDE3ED900C183CC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A49EFF52BDE3EF300C183CC /* HeaderButtonModifier.swift */,
+				1AF6BD7E2BE60DCC003C375B /* Extension */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -109,37 +121,14 @@
 			isa = PBXGroup;
 			children = (
 				1A49F01F2BDFCBC300C183CC /* Services.swift */,
-				1A49F03F2BE11E8D00C183CC /* FileManagingService.swift */,
-				1A49F0002BDF8C8C00C183CC /* RealmService */,
+				1ABF16712BE4D63400C01E10 /* Constant.swift */,
+				1AF6BD742BE5FA09003C375B /* ServiceError.swift */,
+				1AF6BD762BE5FC79003C375B /* BookService.swift */,
+				1AF6BD712BE5F969003C375B /* Upload */,
+				1ABF166C2BE4D4FC00C01E10 /* Repository */,
+				1ABF165D2BE4CC8500C01E10 /* DTO */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		1A49F0002BDF8C8C00C183CC /* RealmService */ = {
-			isa = PBXGroup;
-			children = (
-				1A49F00E2BDF8F9800C183CC /* Utils */,
-				1A49F00D2BDF8F9100C183CC /* Entity */,
-				1A49F00F2BDF8FA700C183CC /* RealmService.swift */,
-			);
-			path = RealmService;
-			sourceTree = "<group>";
-		};
-		1A49F00D2BDF8F9100C183CC /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				1A49F0012BDF8CAD00C183CC /* RMBook.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		1A49F00E2BDF8F9800C183CC /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				1A49F0092BDF8D0700C183CC /* Object+Extension.swift */,
-				1A49F00B2BDF8D5200C183CC /* TypeProtocol.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		1A49F0122BDF93E700C183CC /* Cell */ = {
@@ -154,11 +143,9 @@
 		1A49F0192BDFC6F700C183CC /* PDFView */ = {
 			isa = PBXGroup;
 			children = (
-				1A49F0322BE0C02000C183CC /* PDFDrawing */,
+				1A9C70FC2BE2697800F86F3A /* SubView */,
 				1A49F01A2BDFC70700C183CC /* PDFDrawingView.swift */,
 				1A49F02A2BDFDD6800C183CC /* PDFDrawingViewModel.swift */,
-				1A49F02E2BDFFDA500C183CC /* PDFKitView.swift */,
-				1A49F03B2BE0CD3500C183CC /* ErrorViewController.swift */,
 			);
 			path = PDFView;
 			sourceTree = "<group>";
@@ -183,16 +170,47 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		1A49F0322BE0C02000C183CC /* PDFDrawing */ = {
+		1A9C70FC2BE2697800F86F3A /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				1A49F0302BE0BDE300C183CC /* PDFDrawer.swift */,
-				1A49F0332BE0C03300C183CC /* PDF+Extension.swift */,
-				1A49F0352BE0C10F00C183CC /* DrawingAnnotation.swift */,
-				1A49F0372BE0C15400C183CC /* DrawingGestureRecognizer.swift */,
-				1A49F0392BE0C1D000C183CC /* NonSelectablePDFView.swift */,
+				1A9C70FD2BE269F000F86F3A /* PDFImageDrawingView.swift */,
+				1AD012882BE8ADCB00848928 /* CanvasDrawingRepresentableView.swift */,
+				1A9C70F82BE2696800F86F3A /* PDFViewNavigationBar.swift */,
+				1A9C70FA2BE2697300F86F3A /* DrawingToolBar.swift */,
 			);
-			path = PDFDrawing;
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		1ABF165D2BE4CC8500C01E10 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				1ABF165E2BE4CC9E00C01E10 /* BookObject.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		1ABF16632BE4D48300C01E10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ABF166C2BE4D4FC00C01E10 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1ABF166D2BE4D51D00C01E10 /* BookDBRepository.swift */,
+				1ABF166F2BE4D58F00C01E10 /* DBError.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1AD0128A2BE8CEA000848928 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1AD0128B2BE8CEBB00848928 /* DrawingFileManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		1ADF0B952BDCC4BE008481D8 = {
@@ -200,6 +218,7 @@
 			children = (
 				1ADF0BA02BDCC4BE008481D8 /* PencilPDFDemoApp */,
 				1ADF0B9F2BDCC4BE008481D8 /* Products */,
+				1ABF16632BE4D48300C01E10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,15 +233,16 @@
 		1ADF0BA02BDCC4BE008481D8 /* PencilPDFDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AF6BD832BE61E09003C375B /* GoogleService-Info.plist */,
 				1A49F0032BDF8CC100C183CC /* Info.plist */,
 				1ADF0BB12BDCD145008481D8 /* App */,
 				1A49F01C2BDFCB6900C183CC /* Dependency */,
 				1A49EFFF2BDF8C8400C183CC /* Service */,
 				1A49EFF72BDE42A600C183CC /* Model */,
+				1AD0128A2BE8CEA000848928 /* Manager */,
 				1A49EFF42BDE3ED900C183CC /* Utils */,
 				1ADF0BAF2BDCD134008481D8 /* View */,
 				1ADF0BA52BDCC4BF008481D8 /* Assets.xcassets */,
-				1A49F0432BE1496900C183CC /* Test.pdf */,
 				1ADF0BA72BDCC4BF008481D8 /* Preview Content */,
 			);
 			path = PencilPDFDemoApp;
@@ -239,6 +259,7 @@
 		1ADF0BAF2BDCD134008481D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1AF6BD7F2BE618AD003C375B /* Phase.swift */,
 				1A49F0192BDFC6F700C183CC /* PDFView */,
 				1ADF0BB02BDCD13B008481D8 /* Home */,
 			);
@@ -263,6 +284,24 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		1AF6BD712BE5F969003C375B /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				1AF6BD722BE5F9B2003C375B /* UploadService.swift */,
+				1AF6BD6B2BE5F6CF003C375B /* UploadProvider.swift */,
+				1AF6BD6F2BE5F90B003C375B /* UploadSourceType.swift */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		1AF6BD7E2BE60DCC003C375B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1AF6BD7C2BE60D0B003C375B /* Data+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,8 +319,11 @@
 			);
 			name = PencilPDFDemoApp;
 			packageProductDependencies = (
-				1A49F0052BDF8CF300C183CC /* Realm */,
-				1A49F0072BDF8CF300C183CC /* RealmSwift */,
+				1ABF16642BE4D48300C01E10 /* FirebaseDatabase */,
+				1ABF16662BE4D48300C01E10 /* FirebaseDatabaseSwift */,
+				1ABF16682BE4D48300C01E10 /* FirebaseFirestore */,
+				1ABF166A2BE4D48300C01E10 /* FirebaseStorage */,
+				1AF6BD6D2BE5F700003C375B /* FirebaseStorageCombine-Community */,
 			);
 			productName = PencilPDFDemoApp;
 			productReference = 1ADF0B9E2BDCC4BE008481D8 /* PencilPDFDemoApp.app */;
@@ -312,7 +354,7 @@
 			);
 			mainGroup = 1ADF0B952BDCC4BE008481D8;
 			packageReferences = (
-				1A49F0042BDF8CF300C183CC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 1ADF0B9F2BDCC4BE008481D8 /* Products */;
 			projectDirPath = "";
@@ -328,7 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A49F0442BE1496900C183CC /* Test.pdf in Resources */,
+				1AF6BD842BE61E09003C375B /* GoogleService-Info.plist in Resources */,
 				1ADF0BA92BDCC4BF008481D8 /* Preview Assets.xcassets in Resources */,
 				1ADF0BA62BDCC4BF008481D8 /* Assets.xcassets in Resources */,
 			);
@@ -341,33 +383,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A49F02F2BDFFDA500C183CC /* PDFKitView.swift in Sources */,
-				1A49F00A2BDF8D0700C183CC /* Object+Extension.swift in Sources */,
+				1AF6BD752BE5FA09003C375B /* ServiceError.swift in Sources */,
 				1A49EFF92BDE42C600C183CC /* Book.swift in Sources */,
-				1A49F0312BE0BDE300C183CC /* PDFDrawer.swift in Sources */,
+				1AF6BD732BE5F9B2003C375B /* UploadService.swift in Sources */,
+				1A9C70FB2BE2697300F86F3A /* DrawingToolBar.swift in Sources */,
 				1A49F0162BDF942F00C183CC /* BookItemEmptyCell.swift in Sources */,
+				1AD012892BE8ADCB00848928 /* CanvasDrawingRepresentableView.swift in Sources */,
+				1A9C70FE2BE269F000F86F3A /* PDFImageDrawingView.swift in Sources */,
+				1AF6BD702BE5F90B003C375B /* UploadSourceType.swift in Sources */,
+				1AF6BD7D2BE60D0B003C375B /* Data+Extension.swift in Sources */,
 				1ADF0BA42BDCC4BE008481D8 /* HomeView.swift in Sources */,
 				1A49F0292BDFDCBF00C183CC /* NavigationRoutingView.swift in Sources */,
-				1A49F03C2BE0CD3500C183CC /* ErrorViewController.swift in Sources */,
-				1A49F00C2BDF8D5200C183CC /* TypeProtocol.swift in Sources */,
-				1A49F0022BDF8CAD00C183CC /* RMBook.swift in Sources */,
-				1A49F0362BE0C10F00C183CC /* DrawingAnnotation.swift in Sources */,
 				1A49F01E2BDFCB9B00C183CC /* DIContainer.swift in Sources */,
-				1A49F0382BE0C15400C183CC /* DrawingGestureRecognizer.swift in Sources */,
 				1A49F01B2BDFC70700C183CC /* PDFDrawingView.swift in Sources */,
+				1AF6BD772BE5FC79003C375B /* BookService.swift in Sources */,
 				1ADF0BA22BDCC4BE008481D8 /* PencilPDFDemoAppApp.swift in Sources */,
+				1ABF16722BE4D63400C01E10 /* Constant.swift in Sources */,
+				1AF6BD6C2BE5F6CF003C375B /* UploadProvider.swift in Sources */,
 				1A49EFFB2BDE45B900C183CC /* HomeViewModel.swift in Sources */,
-				1A49EFF62BDE3EF300C183CC /* HeaderButtonModifier.swift in Sources */,
+				1AF6BD802BE618AE003C375B /* Phase.swift in Sources */,
 				1A49F0142BDF93F800C183CC /* BookItemCell.swift in Sources */,
-				1A49F03A2BE0C1D000C183CC /* NonSelectablePDFView.swift in Sources */,
 				1A49F02B2BDFDD6800C183CC /* PDFDrawingViewModel.swift in Sources */,
-				1A49F0342BE0C03300C183CC /* PDF+Extension.swift in Sources */,
 				1A49F0202BDFCBC300C183CC /* Services.swift in Sources */,
+				1AD0128C2BE8CEBB00848928 /* DrawingFileManager.swift in Sources */,
+				1ABF165F2BE4CC9E00C01E10 /* BookObject.swift in Sources */,
 				1A49F0232BDFCC6400C183CC /* NavigationDestination.swift in Sources */,
-				1A49F0102BDF8FA800C183CC /* RealmService.swift in Sources */,
 				1A49F0272BDFCD1000C183CC /* ObservableObjectSettable.swift in Sources */,
+				1A9C70F92BE2696800F86F3A /* PDFViewNavigationBar.swift in Sources */,
+				1ABF166E2BE4D51D00C01E10 /* BookDBRepository.swift in Sources */,
+				1ABF16702BE4D58F00C01E10 /* DBError.swift in Sources */,
 				1A49F0252BDFCC9A00C183CC /* NavigationRouter.swift in Sources */,
-				1A49F0402BE11E8D00C183CC /* FileManagingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +565,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -553,6 +599,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -583,26 +630,41 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1A49F0042BDF8CF300C183CC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1A49F0052BDF8CF300C183CC /* Realm */ = {
+		1ABF16642BE4D48300C01E10 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1A49F0042BDF8CF300C183CC /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
+			package = 1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
-		1A49F0072BDF8CF300C183CC /* RealmSwift */ = {
+		1ABF16662BE4D48300C01E10 /* FirebaseDatabaseSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1A49F0042BDF8CF300C183CC /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
+			package = 1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		1ABF16682BE4D48300C01E10 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1ABF166A2BE4D48300C01E10 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		1AF6BD6D2BE5F700003C375B /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ABF16622BE4D44E00C01E10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,68 +6,33 @@
 //
 
 import SwiftUI
+import PencilKit
 
 struct PDFDrawingView: View {
     @EnvironmentObject var container: DIContainer
     @StateObject var viewModel: PDFDrawingViewModel
-    @State var toolType: DrawingTool = .pen
     
     var body: some View {
         VStack {
-            DrawingToolBar
-                .padding()
+            PDFViewNavigationBar(viewModel: viewModel)
             
-            PDFKitView(toolType: $toolType, data: viewModel.book.path)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.9)
+            DrawingToolBar(viewModel: viewModel)
+            
+            Spacer()
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: [GridItem(.fixed(UIScreen.main.bounds.height * 0.8))]) {
+                    ForEach(viewModel.book.pdfImageURLs.indices, id: \.self) { idx in
+                        CanvasDrawingPageView(tool:  $viewModel.selectedTool,
+                                              drawing: $viewModel.drawings[idx],
+                                              pagePDFImageUrl: viewModel.book.pdfImageURLs[idx])
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .scrollTargetBehavior(.paging)
         }
         .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItemGroup(placement: .topBarLeading) {
-                Button {
-                    viewModel.send(action: .goToBackView)
-                } label: {
-                    Image(systemName: "chevron.backward")
-                        .foregroundStyle(.black)
-                }
-            }
-            
-            ToolbarItemGroup(placement: .principal) {
-                Text(viewModel.book.title)
-                    .font(.title)
-                    .foregroundStyle(.black)
-            }
-        }
-    }
-    
-    var DrawingToolBar: some View {
-        HStack {
-            Button {
-                toolType = .pen
-            } label: {
-                Text("Pen")
-                    .font(.title2)
-            }
-
-            Button {
-                toolType = .pencil
-            } label: {
-                Text("Pencil")
-                    .font(.title2)
-            }
-            
-            Button {
-                toolType = .highlighter
-            } label: {
-                Text("Highlight")
-                    .font(.title2)
-            }
-            
-            Button {
-                toolType = .eraser
-            } label: {
-                Text("Eraser")
-                    .font(.title2)
-            }
-        }
+        .navigationBarHidden(true)
     }
 }
