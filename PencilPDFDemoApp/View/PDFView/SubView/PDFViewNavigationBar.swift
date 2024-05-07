@@ -11,23 +11,30 @@ struct PDFViewNavigationBar: View {
     @ObservedObject var viewModel: PDFDrawingViewModel
     
     var body: some View {
-        HStack {
-            Button {
-                viewModel.send(action: .goToBackView)
-            } label: {
-                Image(systemName: "chevron.backward")
+        VStack {
+            Spacer()
+            
+            HStack {
+                Button {
+                    viewModel.send(action: .goToBackView)
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .foregroundStyle(.black)
+                }
+                .padding(.leading, 20)
+                
+                Spacer()
+                
+                Text(viewModel.book.title)
+                    .font(.title3)
+                    .fontWeight(.bold)
                     .foregroundStyle(.black)
+                
+                Spacer()
             }
-            .padding(.leading, 20)
-            
-            Spacer()
-            
-            Text(viewModel.book.title)
-                .font(.title)
-                .foregroundStyle(.black)
-            
-            Spacer()
+            .padding(.bottom, 20)
         }
-        .background(.white)
+        .background(.backgroundGray)
+        .frame(height: 80)
     }
 }

@@ -9,18 +9,19 @@ import Foundation
 
 class DrawingFileManager {
     static var share = DrawingFileManager()
-    private let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    private lazy var drawingDatasURL = documentsURL.appendingPathComponent("DrawingDatas")
+    private let defaultDirectory = FileManager.default
+    private let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    private lazy var drawingDatasURL = documentURL.appendingPathComponent("DrawingDatas")
     
     func checkDirectory(bookId: String) -> Bool {
-        let url = documentsURL.appendingPathComponent(bookId)
-        return url.isFileURL
+        let bookURL = drawingDatasURL.appendingPathComponent(bookId)
+        return defaultDirectory.fileExists(atPath: bookURL.path)
     }
     
     func makeDirectory(bookId: String) {
         let bookURL = drawingDatasURL.appendingPathComponent(bookId)
         do {
-            try FileManager.default.createDirectory(at: bookURL, withIntermediateDirectories: true)
+            try defaultDirectory.createDirectory(at: bookURL, withIntermediateDirectories: true)
         } catch {
             print(error.localizedDescription)
         }

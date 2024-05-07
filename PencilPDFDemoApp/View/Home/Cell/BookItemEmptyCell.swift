@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookItemEmptyCell: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.white)
@@ -21,7 +21,7 @@ struct BookItemEmptyCell: View {
             }
                 
             Text("PDF 업로드하기")
-                .font(.title2)
+                .font(.title3)
                 .foregroundStyle(.black)
             
             Spacer()

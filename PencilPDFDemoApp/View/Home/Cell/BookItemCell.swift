@@ -12,7 +12,7 @@ struct BookItemCell: View {
     var progress: Int
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.white)
@@ -25,9 +25,11 @@ struct BookItemCell: View {
             }
                 
             Text(title)
-                .font(.title2)
+                .font(.title3)
+                .multilineTextAlignment(.leading)
                 .foregroundStyle(.black)
                 .lineLimit(2)
+                .padding(.bottom, 10)
             
             Text("\(progress)%")
                 .foregroundStyle(.black)

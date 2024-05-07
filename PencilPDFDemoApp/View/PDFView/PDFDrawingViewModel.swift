@@ -24,6 +24,14 @@ class PDFDrawingViewModel: ObservableObject {
     var container: DIContainer
     private var cancellables = Set<AnyCancellable>()
     
+    @Published var phase: Phase = .notRequested {
+        didSet {
+            isLoading = phase == .loading ? true : false
+        }
+    }
+    
+    @Published var isLoading: Bool = false
+    
     var book: Book
     var drawings = [PKDrawing]()
     
@@ -31,8 +39,8 @@ class PDFDrawingViewModel: ObservableObject {
     var highlightWidthArr: [Double] = [4.0, 8.0, 12.0]
     var eraserWidthArr: [Double] = [28.0, 40.0, 52.0]
     
-    var pencilColorArr: [UIColor] = [.black, .blue, .red]
-    var highlightColorArr: [UIColor] = [.yellow, .green, .systemPink]
+    var pencilColorArr: [UIColor] = [.black, .pencilRed, .pencilBlue]
+    var highlightColorArr: [UIColor] = [.highlightYello, .highlightPink, .highlightGreen]
     
     // MARK: - 선택한 ToolType
     @Published var selectedToolType: ToolType = .pen {
@@ -83,8 +91,8 @@ class PDFDrawingViewModel: ObservableObject {
         self.book = book
         
         if DrawingFileManager.share.checkDirectory(bookId: book.id) {
-            print(1)
             let datas = DrawingFileManager.share.getDrawingDatas(bookId: book.id, totalPage: book.totalPage)
+            
             for data in datas {
                 do {
                     let drawing = try PKDrawing(data: data)
@@ -94,7 +102,6 @@ class PDFDrawingViewModel: ObservableObject {
                 }
             }
         } else {
-            DrawingFileManager.share.makeDirectory(bookId: book.id)
             drawings = Array(repeating: PKDrawing(), count: book.pdfImageURLs.count)
         }
     }
@@ -102,7 +109,9 @@ class PDFDrawingViewModel: ObservableObject {
     func send(action: Action) {
         switch action {
         case .goToBackView:
+            phase = .loading
             saveDrawings()
+            phase = .success
             container.navigationRouter.pop()
         }
     }
@@ -121,6 +130,7 @@ class PDFDrawingViewModel: ObservableObject {
     }
     
     private func saveDrawings() {
+        DrawingFileManager.share.makeDirectory(bookId: book.id)
         let datas = drawings.map { $0.dataRepresentation() }
         DrawingFileManager.share.saveDrawingDatas(datas: datas, bookId: book.id)
     }

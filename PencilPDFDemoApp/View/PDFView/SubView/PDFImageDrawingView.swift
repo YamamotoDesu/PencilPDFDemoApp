@@ -10,26 +10,34 @@ import UIKit
 import PencilKit
 
 struct CanvasDrawingPageView: View {
-    @Binding private var tool: PKTool
-    @Binding private var drawing: PKDrawing
-    
+    // MARK: - Zoom 및 Drag를 위한 Property
     @State private var scale: CGFloat = 1.0
     @State private var xOffset: CGFloat = 0.0
     @State private var yOffset: CGFloat = 0.0
     @GestureState private var magnification = CGFloat(1.0)
     @GestureState private var dragOffset = CGSize.zero
     
-    private var width = UIScreen.main.bounds.width
-    private var height = UIScreen.main.bounds.height * 0.8
-    
+    // MARK: - CanvasView에 전달하기 위한 Property
+    @Binding private var tool: PKTool
+    @Binding private var drawing: PKDrawing
     var pagePDFImageUrl: String
+    var width: CGFloat
+    var height: CGFloat
     
-    init(tool: Binding<PKTool>, drawing: Binding<PKDrawing>, pagePDFImageUrl: String) {
+    init(tool: Binding<PKTool>,
+         drawing: Binding<PKDrawing>,
+         pagePDFImageUrl: String,
+         width: CGFloat,
+         height: CGFloat
+    ) {
         self._tool = tool
         self._drawing = drawing
         self.pagePDFImageUrl = pagePDFImageUrl
+        self.width = width
+        self.height = height
     }
     
+    // MARK: - Zoom Gesture
     var magnificationGesture: some Gesture {
         MagnificationGesture()
             .updating($magnification) { value, gestureState, transaction in
@@ -37,7 +45,6 @@ struct CanvasDrawingPageView: View {
             }
             .onEnded { value in
                 self.scale *= value
-                
                 if self.scale <= 1.0 {
                     self.scale = 1.0
                     self.xOffset = 0.0
@@ -46,6 +53,7 @@ struct CanvasDrawingPageView: View {
             }
     }
     
+    // MARK: - Drag Gesture
     var dragGesture: some Gesture {
         DragGesture()
             .updating($dragOffset) { value, state, _ in
@@ -79,13 +87,16 @@ struct CanvasDrawingPageView: View {
     var body: some View {
         ZStack {
             AsyncImage(url: URL(string: pagePDFImageUrl)) { image in
-                image.image?.aspectRatio(contentMode: .fit)
-                image.image?.resizable()
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
             }
-            .frame(width: width, height: height)
             
             CanvasDrawingRepresentableView(tool: $tool, drawing: $drawing)
         }
+        .background(.white)
         .scaleEffect(scale * magnification)
         .offset(x: xOffset + dragOffset.width, y: yOffset + dragOffset.height)
         .clipped()

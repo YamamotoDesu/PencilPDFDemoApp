@@ -31,7 +31,6 @@ extension Data {
                     ctx.fill(pdfPageSize)
                     ctx.cgContext.translateBy(x: 0.0, y: pdfPageSize.size.height)
                     ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
-                    
                     pdfPage.draw(with: .mediaBox, to: ctx.cgContext)
                 }
                 

@@ -15,49 +15,40 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack(path: $container.navigationRouter.destinations) {
-            ZStack {
-                if viewModel.phase == .loading {
-                    VStack {
-                        Text("로딩중")
-                            .font(.title)
-                        
-                        ProgressView()
-                    }
-                }
-                
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))], spacing: 40) {
-                        // PDF 추가 버튼
-                        Button(action: {
-                            isShowFileImporter = true
-                        }, label: {
-                            BookItemEmptyCell()
-                        })
-                        .fileImporter(isPresented: $isShowFileImporter,
-                                      allowedContentTypes: [.pdf]
-                        ) { result in
-                            viewModel.phase = .loading
-                            switch result {
-                            case .success(let url):
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))], spacing: 40) {
+                    // PDF 추가 버튼
+                    Button(action: {
+                        isShowFileImporter = true
+                    }, label: {
+                        BookItemEmptyCell()
+                    })
+                    .fileImporter(isPresented: $isShowFileImporter,
+                                  allowedContentTypes: [.pdf]
+                    ) { result in
+                        viewModel.phase = .loading
+                        switch result {
+                        case .success(let url):
+                            DispatchQueue.global().async {
                                 viewModel.send(action: .makeNewBook(url))
-                            case .failure(let error):
-                                print(error)
-                                viewModel.phase = .fail
                             }
+                        case .failure(let error):
+                            print(error)
+                            viewModel.phase = .fail
                         }
-                        
-                        ForEach(viewModel.books, id: \.self) { book in
-                            Button(action: {
-                                viewModel.send(action: .goToPDF(book))
-                            }, label: {
-                                BookItemCell(title: book.title,
-                                             progress: book.progress)
-                            })
-                        }
-                    } // VGrid
-                    .padding(.horizontal, 10)
-                } // ScrollView
-            } // ZStack
+                    }
+                    
+                    ForEach(viewModel.books, id: \.self) { book in
+                        Button(action: {
+                            viewModel.send(action: .goToPDF(book))
+                        }, label: {
+                            BookItemCell(title: book.title,
+                                         progress: book.progress)
+                        })
+                    }
+                } // VGrid
+                .padding(.horizontal, 10)
+            } // ScrollView
             .background(.white)
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
@@ -69,8 +60,9 @@ struct HomeView: View {
             .navigationDestination(for: NavigationDestination.self) {
                 NavigationRoutingView(destination: $0)
             }
-            .onAppear {
-                viewModel.send(action: .viewAppear)
+            .sheet(isPresented: $viewModel.isLoading) {
+                LoadingView(loadingType: .upload)
+                    .shadow(radius: 20)
             }
         } // NavigationStack
     }

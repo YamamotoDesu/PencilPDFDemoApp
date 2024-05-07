@@ -27,11 +27,19 @@ struct DrawingToolBar: View {
                     Button {
                         viewModel.selectedToolType = select
                     } label: {
-                        Image(systemName: select.rawValue)
-                            .tint(.black)
+                        ZStack {
+                            Image(systemName: select.rawValue)
+                                .tint(.black)
+                                .zIndex(1)
+                            
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(.selectedGray)
+                                .frame(width: 28, height: 28)
+                                .opacity(viewModel.selectedToolType == select ? 1.0 : 0.0)
+                                .zIndex(0)
+                        }
                     }
                     .frame(width: 30, height: 30)
-                    .background(viewModel.selectedToolType == select ? .gray : .white)
                     
                     Spacer()
                 }
@@ -52,12 +60,20 @@ struct DrawingToolBar: View {
                         Button {
                             viewModel.selectedPencilWidth = select
                         } label: {
-                            Capsule()
-                                .fill(.black)
-                                .frame(width: 26, height: select)
+                            ZStack {
+                                Capsule()
+                                    .fill(.black)
+                                    .frame(width: 24, height: select)
+                                    .zIndex(1)
+                                
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(.selectedGray)
+                                    .frame(width: 28, height: 28)
+                                    .opacity(viewModel.selectedPencilWidth == select ? 1.0 : 0.0)
+                                    .zIndex(0)
+                            }
                         }
                         .frame(width: 30, height: 30)
-                        .background(viewModel.selectedPencilWidth == select ? .gray : .white)
                         
                         Spacer()
                     }
@@ -75,12 +91,20 @@ struct DrawingToolBar: View {
                         Button {
                             viewModel.selectedPencilColor = select
                         } label: {
-                            Circle()
-                                .fill(Color(select))
-                                .frame(width: 26, height: 26)
+                            ZStack {
+                                Circle()
+                                    .fill(Color(select))
+                                    .frame(width: 20, height: 20)
+                                    .zIndex(1)
+                                
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(.selectedGray)
+                                    .frame(width: 28, height: 28)
+                                    .opacity(viewModel.selectedPencilColor == select ? 1.0 : 0.0)
+                                    .zIndex(0)
+                            }
                         }
                         .frame(width: 30, height: 30)
-                        .background(viewModel.selectedPencilColor == select ? .gray : .white)
                         
                         Spacer()
                     }
@@ -99,12 +123,20 @@ struct DrawingToolBar: View {
                         Button {
                             viewModel.selectedHighlightWidth = select
                         } label: {
-                            Capsule()
-                                .fill(.black)
-                                .frame(width: 26, height: select)
+                            ZStack {
+                                Capsule()
+                                    .fill(.black)
+                                    .frame(width: 24, height: select)
+                                    .zIndex(1)
+                                
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(.selectedGray)
+                                    .frame(width: 28, height: 28)
+                                    .opacity(viewModel.selectedHighlightWidth == select ? 1.0 : 0.0)
+                                    .zIndex(0)
+                            }
                         }
                         .frame(width: 30, height: 30)
-                        .background(viewModel.selectedHighlightWidth == select ? .gray : .white)
                         
                         Spacer()
                     }
@@ -122,12 +154,20 @@ struct DrawingToolBar: View {
                         Button {
                             viewModel.selectedHighlightColor = select
                         } label: {
-                            Circle()
-                                .fill(Color(select))
-                                .frame(width: 26, height: 26)
+                            ZStack {
+                                Circle()
+                                    .fill(Color(select))
+                                    .frame(width: 20, height: 20)
+                                    .zIndex(1)
+                                
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(.selectedGray)
+                                    .frame(width: 28, height: 28)
+                                    .opacity(viewModel.selectedHighlightColor == select ? 1.0 : 0.0)
+                                    .zIndex(0)
+                            }
                         }
                         .frame(width: 30, height: 30)
-                        .background(viewModel.selectedHighlightColor == select ? .gray : .white)
                         
                         Spacer()
                     }
@@ -146,13 +186,20 @@ struct DrawingToolBar: View {
                         Button {
                             viewModel.selectedEraserWidth = select
                         } label: {
-                            Circle()
-                                .fill(.black)
-                                .frame(width: select / 2, height: select / 2)
-                                .clipped()
+                            ZStack {
+                                Circle()
+                                    .fill(.selectedGray)
+                                    .frame(width: select / 2, height: select / 2)
+                                    .zIndex(1)
+                                
+                                Circle()
+                                    .fill(.blue)
+                                    .frame(width: select / 2 + 10, height: select / 2 + 10)
+                                    .opacity(viewModel.selectedEraserWidth == select ? 1.0 : 0.0)
+                                    .zIndex(0)
+                            }
                         }
                         .frame(width: 30, height: 30)
-                        .background(viewModel.selectedEraserWidth == select ? .gray : .white)
                         
                         Spacer()
                     }
@@ -166,6 +213,6 @@ struct DrawingToolBar: View {
             Spacer()
         }
         .frame(height: 40)
-        .background(.white)
+        .background(.backgroundGray)
     }
 }
